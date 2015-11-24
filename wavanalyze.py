@@ -1,13 +1,13 @@
 from pylab import*
 from scipy.io import wavfile
 
-sampFreq, snd = wavfile.read('output.wav')
+sampFreq, snd = wavfile.read(sys.argv[1])
 
 snd = snd / (2.**15)
 
-s1 = snd[:,0]
-
-timeArray = arange(0,5060.0, 1)
+s1 = snd[0:1024,0]
+print s1
+timeArray = arange(0,1024, 1)
 timeArray = timeArray/ sampFreq
 timeArray = timeArray * 1000
 
